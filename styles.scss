@@ -1,0 +1,237 @@
+html,
+body {
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+$gray: #5f5a5a;
+$white: #ffffff;
+$lightGray: #ebebeb;
+$font-size1: 1.5rem;
+$font-family: Verdana;
+
+@mixin h($height) {
+    height: $height;
+}
+
+@mixin w($width) {
+    width: $width;
+}
+
+@mixin fs($font_size) {
+    font-size: $font_size;
+}
+
+@mixin header {
+    color: black;
+    @include fs(3rem);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    @include w(100%);
+    font-family: $font-family;
+}
+
+.header {
+    background-color: $gray;
+    background-image: url(img/welcome.jpg);
+    background-size: 100vw 80vh;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    @include h(90vh);
+    color: $white;
+    text-align: center;
+
+    &__container {
+        @include h(80%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &__heading1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        &__heading2 {
+            font-size: 2.5rem;
+            color: $gray;
+        }
+    }
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    @include h(10vh);
+    @include w(40%);
+    justify-content: space-around;
+    align-items: center;
+    font-size: $font-size1;
+    padding-right: 0.5rem;
+
+    a {
+        color: $white;
+        text-decoration: none;
+    }
+}
+
+.plot {
+    @include h(90vh);
+    background-color: $lightGray;
+    padding-top: 3rem;
+
+    &__heading {
+        @include header;
+    }
+
+    &__container {
+        @include w(800px);
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+
+        img {
+            @include w(40%);
+        }
+    }
+
+    &__text {
+        padding: 4rem 2rem;
+
+        p {
+            margin-bottom: 2rem;
+        }
+
+        &--paragraph1 {
+            @include fs(1.4rem);
+        }
+    }
+}
+
+.characters {
+    @include h(100vh);
+    background-image: url(img/rey-standing.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    padding-top: 3rem;
+    position: relative;
+
+    &__heading {
+        @include header;
+    }
+
+    &__container {
+        @include h(20%);
+        @include w(800px);
+        margin: auto;
+        position: absolute;
+        bottom: 2rem;
+        left: 25%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+            border-radius: 50%;
+
+            &.center {
+                @include w(140px);
+            }
+
+            &.nd-to-center {
+                @include w(120px);
+            }
+
+            &.nd-to-edge {
+                @include w(100px);
+            }
+
+            &.edge {
+                @include w(80px);
+            }
+        }
+    }
+}
+
+.ratings {
+    @include h(100vh);
+    padding-top: 3rem;
+    background-color: $lightGray;
+
+    &__heading {
+        @include header;
+    }
+
+    &__container {
+        @include w(800px);
+        @include h(75vh);
+        margin: auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+    }
+
+    &__cont {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        &--left {
+            background-color: $gray;
+            @include w(200px);
+            @include h(337.5px);
+            margin: 0.5rem 0rem 1rem;
+        }
+
+        &--center {
+            background-color: $gray;
+            @include w(200px);
+            @include h(405px);
+            margin: 0.5rem 0rem 1rem;
+        }
+
+        &--right {
+            background-color: $gray;
+            @include w(200px);
+            @include h(382.5px);
+            margin: 0.5rem 0rem 1rem;
+        }
+
+        &--rating {
+            @include fs(1.6rem);
+        }
+
+        &--site {
+            @include fs(1.2rem);
+        }
+    }
+}
+
+.cast {
+    background-color: $lightGray;
+    @include h(100vh);
+    padding-top: 3rem;
+
+    &__heading {
+        @include header;
+    }
+}
+
